@@ -1,8 +1,30 @@
-import { createServer } 'node:http'
+// import { createServer } from 'node:http';
 
-const server = createServer(() => {
-    console.log('oi')
+// const hostname = '127.0.0.1';
+// const port = 3000;
+
+// const server = createServer((req, res) => {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/plain');
+//     res.end('Hello, World!\n');
+    
+//   });
+
+//   server.listen(port, hostname, () => {
+//     console.log(`Server running at http://${hostname}:${port}/`);
+//   }); 
+
+import { fastify } from 'fastify'
+
+const server = fastify()
+
+server.get('/', () => {
+    return 'hello world'
 })
 
-server.listen(3333)
+server.listen(
+    {
+        port: 2332,
+    }
+)
 
